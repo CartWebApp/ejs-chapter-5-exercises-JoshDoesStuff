@@ -1,18 +1,16 @@
 function every(array, test) {
-  let arrayLength = array.length - 1
-  let i = arrayLength
-  while (arrayLength  >= 0) {
-    if (test(array[i]) === true){
-      i = i - 1
-    } else {
+  for (const i of array) {
+    if (test(i) != true) {
       return false
     }
-  } 
+  }
+  return true
 }
 
 function everySome(array, test) {
-
+  return !array.some((element) => !test(element))
 }
+
   
   console.log(every([1, 3, 5], n => n < 10));
   // → true
